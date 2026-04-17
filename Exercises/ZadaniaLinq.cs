@@ -62,7 +62,10 @@ public sealed class ZadaniaLinq
     /// </summary>
     public IEnumerable<string> Zadanie03_StudenciPosortowani()
     {
-        throw Niezaimplementowano(nameof(Zadanie03_StudenciPosortowani));
+        var query = from student in DaneUczelni.Studenci
+                    orderby student.Nazwisko, student.Imie
+                    select $"{student.NumerIndeksu}: {student.Imie} {student.Nazwisko}";
+        return query;
     }
 
     /// <summary>
